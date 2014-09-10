@@ -24,7 +24,9 @@
     "memjs": "^0.8.5"
   },
   "devDependencies": {
+    "bailey": "0.0.13",
     "chai": "^1.9.1",
+    "istanbul": "^0.3.2",
     "mocha": "^1.21.4",
     "should": "^4.0.4"
   }
