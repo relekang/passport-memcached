@@ -1,0 +1,31 @@
+{
+  "name": "passport-memcached",
+  "version": "0.0.0",
+  "description": "Passport user serialisers for memcached",
+  "main": "index.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/relekang/passport-memcached.git"
+  },
+  "keywords": [
+    "passport",
+    "serialize"
+  ],
+  "author": "Rolf Erik Lekang <me@rolflekang.com> (http://rolflekang.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/relekang/passport-memcached/issues"
+  },
+  "homepage": "https://github.com/relekang/passport-memcached",
+  "dependencies": {
+    "memjs": "^0.8.5"
+  },
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "mocha": "^1.21.4",
+    "should": "^4.0.4"
+  }
+}
