@@ -1,0 +1,52 @@
+import should
+import chai
+import memjs
+
+import ../index: memcachedSerializeUser, memcachedDeserializeUser
+
+expect = chai.expect
+cache = memjs.Client.create('localhost')
+
+describe('passport-abakus', () ->
+    user = {
+        username: 'dumbledore'
+        name: 'Albus Dumbledore'
+        auth: true
+    }
+
+    beforeEach(() ->
+        cache.delete(user.username)
+    )
+
+    describe('memcachedSerializeUser()', () ->
+        it('should serialize the user data', (done) ->
+            memcachedSerializeUser()(user, (err, username) ->
+                if err
+                    return done(err)
+                expect(username).to.equal(user.username)
+                cache.get(username, (err, value, key) ->
+                    if err
+                        return done(err)
+                    savedUser = JSON.parse(value)
+                    expect(savedUser.username).to.equal(user.username)
+                    expect(savedUser.name).to.equal(user.name)
+                    done()
+                )
+            )
+        )
+    )
+
+    describe('memcachedDeserializeUser()', () ->
+        it('should deserialize the user data', (done) ->
+            cache.set(user.username, JSON.stringify(user), (err, success) ->
+               memcachedDeserializeUser()(user.username, (err, savedUser) ->
+                    if err
+                        return done(err)
+                    expect(savedUser.username).to.equal(user.username)
+                    expect(savedUser.name).to.equal(user.name)
+                    done()
+                )
+            )
+        )
+    )
+)
