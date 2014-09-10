@@ -14,6 +14,10 @@
     "passport",
     "serialize"
   ],
+  "files": [
+    "index.js",
+    "LICENSE"
+  ],
   "author": "Rolf Erik Lekang <me@rolflekang.com> (http://rolflekang.com/)",
   "license": "MIT",
   "bugs": {
