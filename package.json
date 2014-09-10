@@ -1,6 +1,6 @@
 {
   "name": "passport-memcached",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Passport user serialisers for memcached",
   "main": "index.js",
   "scripts": {
