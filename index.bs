@@ -7,16 +7,13 @@ export {
 
 cache = memjs.Client.create('localhost')
 
-serializeUser = (options) ->
-    return (user, done) ->
-        cache.set(user.username, JSON.stringify(user), (err, success) ->
-            done(null, user.username)
-        )
+serializeUser = (user, done) ->
+    cache.set(user.username, JSON.stringify(user), (err, success) ->
+        done(null, user.username)
+    )
 
-deserializeUser = (options) ->
-    return (username, done) ->
-        cache.get(username, (err, value, key) ->
-            user = JSON.parse(value)
-            done(null, user)
-        )
-
+deserializeUser = (username, done) ->
+    cache.get(username, (err, value, key) ->
+        user = JSON.parse(value)
+        done(null, user)
+    )

@@ -20,7 +20,7 @@ describe('passport-abakus', () ->
 
     describe('memcachedSerializeUser()', () ->
         it('should serialize the user data', (done) ->
-            memcachedSerializeUser()(user, (err, username) ->
+            memcachedSerializeUser(user, (err, username) ->
                 if err
                     return done(err)
                 expect(username).to.equal(user.username)
@@ -39,7 +39,7 @@ describe('passport-abakus', () ->
     describe('memcachedDeserializeUser()', () ->
         it('should deserialize the user data', (done) ->
             cache.set(user.username, JSON.stringify(user), (err, success) ->
-               memcachedDeserializeUser()(user.username, (err, savedUser) ->
+               memcachedDeserializeUser(user.username, (err, savedUser) ->
                     if err
                         return done(err)
                     expect(savedUser.username).to.equal(user.username)
