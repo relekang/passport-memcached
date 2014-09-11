@@ -12,8 +12,8 @@ npm install --save passport-memcached
 ```javascript
 var passportMemcached = require('passport-memcached');
 
-passport.serializeUser(passportMemcached.memcachedSerializeUser);
-passport.deserializeUser(passportMemcached.memcachedDeserializeUser);
+passport.serializeUser(passportMemcached.memcachedSerializeUser());
+passport.deserializeUser(passportMemcached.memcachedDeserializeUser());
 
 ```
 
