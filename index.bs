@@ -5,7 +5,7 @@ export {
     memcachedDeserializeUser: deserializeUser
 }
 
-cache = memjs.Client.create('localhost')
+cache = memjs.Client.create()
 
 serializeUser = (user, done) ->
     cache.set(user.username, JSON.stringify(user), (err, success) ->

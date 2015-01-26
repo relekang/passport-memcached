@@ -5,7 +5,7 @@ import memjs
 import ../index: memcachedSerializeUser, memcachedDeserializeUser
 
 expect = chai.expect
-cache = memjs.Client.create('localhost')
+cache = memjs.Client.create()
 
 describe('passport-abakus', () ->
     user = {
