@@ -25,7 +25,8 @@
   },
   "homepage": "https://github.com/relekang/passport-memcached",
   "dependencies": {
-    "memjs": "^0.8.5"
+    "memjs": "^0.8.5",
+    "rewire": "^2.1.4"
   },
   "devDependencies": {
     "bailey": "0.0.13",
