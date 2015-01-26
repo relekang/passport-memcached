@@ -9,11 +9,15 @@ cache = memjs.Client.create()
 
 serializeUser = (user, done) ->
     cache.set(user.username, JSON.stringify(user), (err, success) ->
+        if err
+            return done(err)
         done(null, user.username)
     )
 
 deserializeUser = (username, done) ->
     cache.get(username, (err, value, key) ->
+        if err
+            return done(err)
         user = JSON.parse(value)
         done(null, user)
     )
